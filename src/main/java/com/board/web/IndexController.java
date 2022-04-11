@@ -1,6 +1,7 @@
 package com.board.web;
 
 
+import com.board.config.auth.LoginUser;
 import com.board.config.auth.dto.SessionUser;
 import com.board.domain.posts.Posts;
 import com.board.domain.posts.PostsRepository;
@@ -25,12 +26,10 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
 
         List<PostsListResponseDto> allDesc = postsService.findAllDesc();
         model.addAttribute("posts", allDesc);
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
