@@ -12,8 +12,16 @@ buildscript {
 }
 
 // Command + Shitft + A 깃 연동
+// enter share project on GitHub
 
+// .gitlgnore plugin
+// Command shitft + A
 
+// 커밋
+// Command + K
+
+// Push
+// Command Shift K
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -29,6 +37,9 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.projectlombok:lombok')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
 }
